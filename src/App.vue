@@ -11,7 +11,9 @@
         <Left />
       </div> 
 
-      <Right />
+      <Right 
+        :list="arrStories"
+      />
       
     </div>
   </div>
