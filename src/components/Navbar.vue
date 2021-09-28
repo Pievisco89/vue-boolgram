@@ -2,7 +2,7 @@
   <div class="nav d-flex ps-3">
     
     <div class="circle mt-2"
-      v-for="(story, index) in arrStories"
+      v-for="(story, index) in list"
       :key="index"
     >
       <img class="img-fluid"  :src="story.profile_picture" :alt="story.profile_name">
@@ -13,26 +13,13 @@
 </template>
 
 <script>
-import axios from 'axios';
+
 
 export default { 
   name: 'Navbar',
-  data(){
-    return{    
-      arrStories: [],
-    }
+  props:{
+    list: Array,
   },
-
-  created(){
-    axios.get('https://flynn.boolean.careers/exercises/api/boolgram/profiles')
-      .then(resp =>{
-        this.arrStories = resp.data;
-        console.log(this.arrStories);
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
 }
 
 </script>
